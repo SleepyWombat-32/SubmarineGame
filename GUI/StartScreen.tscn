@@ -74,7 +74,7 @@ adjustment_enabled = true
 adjustment_brightness = 0.9
 adjustment_contrast = 1.1
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 resource_name = "DeleteSaveMove"
 length = 0.5
 tracks/0/type = "value"
@@ -90,8 +90,7 @@ tracks/0/keys = {
 "values": [ Vector2( 512, 650 ), Vector2( 512, 208 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "SkinsMove"
+[sub_resource type="Animation" id=11]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("SkinsPopup:rect_position")
@@ -402,8 +401,8 @@ __meta__ = {
 environment = SubResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/DeleteSaveMove = SubResource( 11 )
-anims/SkinsMove = SubResource( 10 )
+anims/DeleteSaveMove = SubResource( 10 )
+anims/SkinsMove = SubResource( 11 )
 
 [connection signal="pressed" from="Popup/YesButton" to="." method="_on_YesButton_pressed"]
 [connection signal="pressed" from="Popup/NoButton" to="." method="_on_NoButton_pressed"]
