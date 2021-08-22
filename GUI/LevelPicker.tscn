@@ -1,0 +1,229 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://GUI/LevelPicker.gd" type="Script" id=1]
+[ext_resource path="res://fonts/GlowingFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/GUI/locked.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[node name="LevelPicker" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="."]
+margin_top = 512.0
+margin_right = 1024.0
+margin_bottom = 600.0
+text = "B A C K"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="BackButton"]
+show_behind_parent = true
+margin_right = 1024.0
+margin_bottom = 88.0
+mouse_filter = 1
+color = Color( 0.0313726, 0.0352941, 0.447059, 0.74902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_right = 240.0
+margin_bottom = -96.0
+rect_pivot_offset = Vector2( 264, 480 )
+custom_constants/separation = 30
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level1" type="Button" parent="VBoxContainer"]
+show_behind_parent = true
+margin_top = 89.0
+margin_right = 216.0
+margin_bottom = 130.0
+text = "Level 1"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Level1"]
+show_behind_parent = true
+margin_right = 216.0
+margin_bottom = 41.0
+mouse_filter = 1
+color = Color( 0.0313726, 0.0352941, 0.447059, 0.74902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Locked" type="TextureRect" parent="VBoxContainer/Level1"]
+margin_left = -32.0
+margin_top = -24.0
+margin_right = 188.0
+margin_bottom = 76.0
+mouse_filter = 0
+texture = ExtResource( 3 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level2" type="Button" parent="VBoxContainer"]
+show_behind_parent = true
+margin_top = 160.0
+margin_right = 216.0
+margin_bottom = 201.0
+text = "Level 2"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Level2"]
+show_behind_parent = true
+margin_right = 216.0
+margin_bottom = 41.0
+mouse_filter = 1
+color = Color( 0.0313726, 0.0352941, 0.447059, 0.74902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Locked" type="TextureRect" parent="VBoxContainer/Level2"]
+margin_left = -32.0
+margin_top = -24.0
+margin_right = 188.0
+margin_bottom = 76.0
+mouse_filter = 0
+texture = ExtResource( 3 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level3" type="Button" parent="VBoxContainer"]
+show_behind_parent = true
+margin_top = 231.0
+margin_right = 216.0
+margin_bottom = 272.0
+text = "Level 3"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Locked" type="TextureRect" parent="VBoxContainer/Level3"]
+margin_left = -32.0
+margin_top = -24.0
+margin_right = 188.0
+margin_bottom = 76.0
+mouse_filter = 0
+texture = ExtResource( 3 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Level3"]
+show_behind_parent = true
+margin_right = 216.0
+margin_bottom = 41.0
+mouse_filter = 1
+color = Color( 0.0313726, 0.0352941, 0.447059, 0.74902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level4" type="Button" parent="VBoxContainer"]
+show_behind_parent = true
+margin_top = 302.0
+margin_right = 216.0
+margin_bottom = 343.0
+rect_pivot_offset = Vector2( -552, 26 )
+text = "Level 4"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Locked" type="TextureRect" parent="VBoxContainer/Level4"]
+margin_left = -32.0
+margin_top = -24.0
+margin_right = 188.0
+margin_bottom = 76.0
+mouse_filter = 0
+texture = ExtResource( 3 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Level4"]
+show_behind_parent = true
+margin_right = 216.0
+margin_bottom = 41.0
+mouse_filter = 1
+color = Color( 0.0313726, 0.0352941, 0.447059, 0.74902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level5" type="Button" parent="VBoxContainer"]
+show_behind_parent = true
+margin_top = 373.0
+margin_right = 216.0
+margin_bottom = 414.0
+text = "Level 5"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Locked" type="TextureRect" parent="VBoxContainer/Level5"]
+margin_left = -32.0
+margin_top = -24.0
+margin_right = 188.0
+margin_bottom = 76.0
+mouse_filter = 0
+texture = ExtResource( 3 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Level5"]
+show_behind_parent = true
+margin_right = 216.0
+margin_bottom = 41.0
+mouse_filter = 1
+color = Color( 0.0313726, 0.0352941, 0.447059, 0.74902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Level1" to="." method="_on_LevelButton_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="VBoxContainer/Level2" to="." method="_on_LevelButton_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="VBoxContainer/Level3" to="." method="_on_LevelButton_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="VBoxContainer/Level4" to="." method="_on_LevelButton_pressed" binds= [ 4 ]]
+[connection signal="pressed" from="VBoxContainer/Level5" to="." method="_on_LevelButton_pressed" binds= [ 5 ]]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GUI/GamemodeSwitcher.gd" type="Script" id=1]
+[ext_resource path="res://fonts/GlowingFont.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[node name="GamemodeSwitcher" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+theme = SubResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClassicArcadeButton" type="Button" parent="."]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 448.0
+margin_bottom = 192.0
+mouse_filter = 1
+text = "Classic Arcade"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="ClassicArcadeButton"]
+show_behind_parent = true
+margin_right = 384.0
+margin_bottom = 128.0
+mouse_filter = 1
+color = Color( 0.0313726, 0.0352941, 0.447059, 0.74902 )
+
+[node name="LevelsButton" type="Button" parent="."]
+margin_left = 576.0
+margin_top = 64.0
+margin_right = 960.0
+margin_bottom = 192.0
+mouse_filter = 1
+text = "Levels"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="LevelsButton"]
+show_behind_parent = true
+margin_right = 384.0
+margin_bottom = 128.0
+mouse_filter = 1
+color = Color( 0.0313726, 0.0352941, 0.447059, 0.74902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="."]
+margin_top = 472.0
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 1
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="BackButton"]
+show_behind_parent = true
+margin_right = 1024.0
+margin_bottom = 128.0
+mouse_filter = 1
+color = Color( 0.0313726, 0.0352941, 0.447059, 0.74902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ClassicArcadeButton" to="." method="_on_ClassicArcadeButton_pressed"]
+[connection signal="pressed" from="LevelsButton" to="." method="_on_LevelsButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

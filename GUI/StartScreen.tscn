@@ -1,0 +1,419 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://fonts/GlowingFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GUI/StartScreen.gd" type="Script" id=3]
+[ext_resource path="res://GUI/SkinsPopup.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Player/Submarine.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Player/PurpleSub.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Player/GreenSub.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Player/OrangeFish.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+outline_size = 2
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 128
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 64
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 64
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 64
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 96
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Environment" id=9]
+background_mode = 4
+fog_color = Color( 0.501961, 0.6, 0.701961, 1 )
+fog_sun_color = Color( 0.164706, 0.835294, 0.886275, 1 )
+glow_enabled = true
+glow_intensity = 0.4
+glow_bloom = 0.1
+glow_blend_mode = 0
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_contrast = 1.1
+
+[sub_resource type="Animation" id=11]
+resource_name = "DeleteSaveMove"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Popup:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 512, 650 ), Vector2( 512, 208 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "SkinsMove"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("SkinsPopup:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1088, 0 ), Vector2( 0, 0 ) ]
+}
+
+[node name="StartScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 512.0
+margin_top = 650.0
+margin_right = -144.0
+margin_bottom = 370.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+color = Color( 0.172549, 0.0196078, 0.588235, 0.45098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Popup"]
+margin_top = 8.0
+margin_right = 368.0
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 1 )
+text = "Are You Sure ?"
+align = 1
+
+[node name="YesButton" type="Button" parent="Popup"]
+margin_left = 16.0
+margin_top = 208.0
+margin_right = 156.0
+margin_bottom = 288.0
+custom_fonts/font = SubResource( 2 )
+text = "YES"
+
+[node name="NoButton" type="Button" parent="Popup"]
+margin_left = 216.0
+margin_top = 208.0
+margin_right = 356.0
+margin_bottom = 288.0
+custom_fonts/font = SubResource( 2 )
+text = "NO"
+
+[node name="MadeWithLabel" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 504.0
+margin_right = 256.0
+margin_bottom = 573.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.00784314, 0.254902, 0.686275, 1 )
+text = "Made with"
+
+[node name="GodotIcon" type="TextureRect" parent="."]
+margin_left = 280.0
+margin_top = 504.0
+margin_right = 344.0
+margin_bottom = 568.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 480.0
+margin_bottom = 138.0
+custom_fonts/font = SubResource( 4 )
+text = "SUBSHARK"
+align = 1
+valign = 1
+
+[node name="StartGameButton" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 152.0
+margin_right = 424.0
+margin_bottom = 248.0
+mouse_filter = 1
+custom_fonts/font = SubResource( 5 )
+text = "Start Game"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="StartGameButton"]
+show_behind_parent = true
+margin_right = 408.0
+margin_bottom = 96.0
+mouse_filter = 1
+color = Color( 0.0313726, 0.0352941, 0.447059, 0.74902 )
+
+[node name="SkinsButton" type="Button" parent="."]
+margin_left = 592.0
+margin_top = 24.0
+margin_right = 1000.0
+margin_bottom = 120.0
+mouse_filter = 1
+custom_fonts/font = SubResource( 5 )
+text = "Skins"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="SkinsButton"]
+show_behind_parent = true
+margin_right = 408.0
+margin_bottom = 96.0
+mouse_filter = 1
+color = Color( 0.0313726, 0.0352941, 0.447059, 0.74902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 376.0
+margin_right = 424.0
+margin_bottom = 472.0
+custom_fonts/font = SubResource( 5 )
+text = "Quit Game"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="QuitButton"]
+show_behind_parent = true
+margin_right = 408.0
+margin_bottom = 96.0
+mouse_filter = 1
+color = Color( 0.0313726, 0.0352941, 0.447059, 0.74902 )
+
+[node name="DeleateSave" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 264.0
+margin_right = 424.0
+margin_bottom = 360.0
+custom_fonts/font = SubResource( 5 )
+text = "Delete Save"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="DeleateSave"]
+show_behind_parent = true
+margin_right = 408.0
+margin_bottom = 96.0
+mouse_filter = 1
+color = Color( 0.0313726, 0.0352941, 0.447059, 0.74902 )
+
+[node name="HighscoreLabel" type="Label" parent="."]
+margin_left = 488.0
+margin_top = 456.0
+margin_right = 762.0
+margin_bottom = 525.0
+rect_scale = Vector2( 1.25, 1.25 )
+custom_fonts/font = SubResource( 6 )
+text = "Highscore : "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number" type="Label" parent="HighscoreLabel"]
+margin_left = 275.2
+margin_top = -6.40002
+margin_right = 429.2
+margin_bottom = 68.6
+custom_fonts/font = SubResource( 7 )
+text = "0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SkinsPopup" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1088.0
+margin_right = -1088.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="SkinsPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.10352e-05
+color = Color( 0.141176, 0.235294, 0.34902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YellowSub" type="TextureButton" parent="SkinsPopup"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 64.0
+margin_top = -28.0
+margin_right = 128.0
+margin_bottom = 36.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PurpleSub" type="TextureButton" parent="SkinsPopup"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -224.0
+margin_top = -32.0
+margin_right = -160.0
+margin_bottom = 32.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreenSub" type="TextureButton" parent="SkinsPopup"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 96.0
+margin_top = -28.0
+margin_right = 160.0
+margin_bottom = 36.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OrangeFish" type="TextureButton" parent="SkinsPopup"]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -36.0
+margin_right = -128.0
+margin_bottom = 28.0
+rect_scale = Vector2( 2, 2 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="SkinsPopup"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -120.0
+margin_right = 512.0
+custom_fonts/font = SubResource( 8 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/DeleteSaveMove = SubResource( 11 )
+anims/SkinsMove = SubResource( 10 )
+
+[connection signal="pressed" from="Popup/YesButton" to="." method="_on_YesButton_pressed"]
+[connection signal="pressed" from="Popup/NoButton" to="." method="_on_NoButton_pressed"]
+[connection signal="pressed" from="StartGameButton" to="." method="_on_StartGameButton_pressed"]
+[connection signal="pressed" from="SkinsButton" to="." method="_on_SkinsButton_pressed"]
+[connection signal="pressed" from="SkinsButton" to="SkinsPopup" method="_on_SkinsButton_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="DeleateSave" to="." method="_on_DeleateSave_pressed"]
+[connection signal="pressed" from="SkinsPopup/YellowSub" to="SkinsPopup" method="change_skin" binds= [ "YellowSub" ]]
+[connection signal="pressed" from="SkinsPopup/PurpleSub" to="SkinsPopup" method="change_skin" binds= [ "PurpleSub" ]]
+[connection signal="pressed" from="SkinsPopup/GreenSub" to="SkinsPopup" method="change_skin" binds= [ "GreenSub" ]]
+[connection signal="pressed" from="SkinsPopup/OrangeFish" to="SkinsPopup" method="change_skin" binds= [ "OrangeFish" ]]
+[connection signal="pressed" from="SkinsPopup/BackButton" to="SkinsPopup" method="_on_BackButton_pressed"]

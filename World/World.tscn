@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://World/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/Enemys/Spawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/World.gd" type="Script" id=3]
+[ext_resource path="res://World/Scoring/Popups.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/GlowingFont.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://World/Scoring/HighScore.gd" type="Script" id=7]
+[ext_resource path="res://Enviroments/World_Env.tres" type="Environment" id=8]
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[node name="World" type="Node2D" groups=[
+"World",
+]]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+pause_mode = 1
+position = Vector2( 512, 302 )
+
+[node name="WorldCamera" type="Camera2D" parent="."]
+position = Vector2( 512, 302 )
+current = true
+
+[node name="Spawner" parent="." instance=ExtResource( 2 )]
+
+[node name="Popups" parent="." instance=ExtResource( 4 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 8 )
+
+[node name="WorldScores" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreLabel" type="Label" parent="WorldScores"]
+margin_right = 1024.0
+margin_bottom = 320.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreLabel" type="Label" parent="WorldScores"]
+margin_left = 832.0
+margin_top = 8.0
+margin_right = 1008.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Popups/GameOverPopup/RetryButton" to="." method="_RetryButton_pressed"]
+[connection signal="pressed" from="Popups/GameOverPopup/BackButton" to="." method="_BackButton_pressed"]
+[connection signal="pressed" from="Popups/PausePopup/ResumeButton" to="." method="resume_pause_game"]
+[connection signal="pressed" from="Popups/PausePopup/BackButton" to="." method="_BackButton_pressed"]
+
+[editable path="Popups"]

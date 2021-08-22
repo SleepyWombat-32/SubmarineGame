@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://World/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World/Enemys/Spawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enviroments/World_Env.tres" type="Environment" id=3]
+[ext_resource path="res://World/Scoring/Popups.tscn" type="PackedScene" id=4]
+[ext_resource path="res://World/Levels/TemplateLevel.gd" type="Script" id=5]
+[ext_resource path="res://World/Levels/PartSpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://fonts/GlowingFont.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
+
+[node name="TemplateLevel" type="Node2D" groups=[
+"World",
+]]
+pause_mode = 2
+script = ExtResource( 5 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512, 300 )
+
+[node name="WorldCamera" type="Camera2D" parent="."]
+position = Vector2( 512, 300 )
+current = true
+
+[node name="Spawner" parent="." instance=ExtResource( 2 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 3 )
+
+[node name="Popups" parent="." instance=ExtResource( 4 )]
+
+[node name="PartSpawner" parent="." instance=ExtResource( 6 )]
+
+[node name="GUIControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PartsCollectedLabel" type="Label" parent="GUIControl"]
+margin_left = 776.0
+margin_top = 8.0
+margin_right = 1008.0
+margin_bottom = 64.0
+mouse_filter = 1
+custom_fonts/font = SubResource( 1 )
+text = "0 / 3"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Popups/GameOverPopup/RetryButton" to="." method="_RetryButton_pressed"]
+[connection signal="pressed" from="Popups/GameOverPopup/BackButton" to="." method="_BackButton_pressed"]
+[connection signal="pressed" from="Popups/PausePopup/ResumeButton" to="." method="resume_pause_game"]
+[connection signal="pressed" from="Popups/PausePopup/BackButton" to="." method="_BackButton_pressed"]
+
+[editable path="Popups"]

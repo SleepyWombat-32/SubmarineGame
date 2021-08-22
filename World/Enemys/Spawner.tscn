@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://World/Spawner.gd" type="Script" id=1]
+
+[node name="Spawner" type="Node2D"]
+pause_mode = 1
+script = ExtResource( 1 )
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="AddedNodes" type="Node2D" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="DifficultyTimer" to="." method="_on_DifficultyTimer_timeout"]
