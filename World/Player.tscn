@@ -83,3 +83,12 @@ emitting = false
 amount = 4
 process_material = SubResource( 2 )
 texture = ExtResource( 4 )
+
+[node name="TopParticles" type="Particles2D" parent="Body"]
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( -26, -24 )
+rotation = -1.57079
+emitting = false
+amount = 3
+process_material = SubResource( 2 )
+texture = ExtResource( 4 )

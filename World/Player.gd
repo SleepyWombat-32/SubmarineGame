@@ -15,7 +15,12 @@ var motion : Vector2 = Vector2()
 
 func _ready():
 	$Body/Sprite.texture = Globals.skins[Globals.selected_skin]
-	if $Body/Sprite.texture == "res://Assets/Player/OrangeFish.png":
+	if Globals.selected_skin == "OrangeFish":
+		$Body/TopParticles.emitting = true
+		$Body/BackParticles.emitting = false
+	else:
+		$Body/BackParticles.emitting = true
+		$Body/TopParticles.emitting = false
 func _physics_process(delta):
 	var direction: Vector2
 	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
